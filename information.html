@@ -75,45 +75,49 @@
     }
 
     /* ===== HEADER AND NAVIGATION ===== */
-    .site-header {
-      position: absolute;
-      z-index: 5;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 23px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
+    
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 22px 7%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  z-index: 10;
+}
 
-    .brand {
-      color: #f4c978;
-      text-decoration: none;
-      font-size: 25px;
-      font-weight: bold;
-      letter-spacing: 4px;
-      white-space: nowrap;
-    }
+.brand {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: normal;
+  letter-spacing: 4px;
+  color: #f7f1e6;
+  text-decoration: none;
+}
 
-    .main-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
+.main-nav {
+  display: flex;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+}
 
-    .main-nav a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s ease;
-    }
+.main-nav a {
+  color: #f7f1e6;
+  text-decoration: none;
+  font-size: 13px;
+}
 
-    .main-nav a:hover,
-    .main-nav a.active {
-      color: #f4c978;
-    }
+.main-nav a.active {
+  color: #e6c58b;
+}
+
+    
 
     /* ===== HERO ===== */
     .hero {
@@ -372,17 +376,21 @@
 
     /* ===== FOOTER ===== */
     .site-footer {
-      padding: 30px 8%;
-      text-align: center;
-      border-top: 1px solid #263b43;
-      color: #aab9be;
+      padding:28px 7%;
+      background:#040c11;
+      border-top:1px solid #34434a;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;gap:15px;
+      flex-wrap:wrap;
     }
 
     .footer-brand {
-      color: #f4c978;
+      color: #f7f1e6;
       font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 4px;
+      font-family:Georgia,serif;
+      letter-spacing:3px;
+      text-decoration:none;
     }
 
     .site-footer p {
@@ -479,12 +487,12 @@
 
   <!-- HEADER -->
   <header class="site-header">
-    <a href="index.html" class="brand">OFFGRID</a>
+    <a href="index.html" class="brand">△ OFFGRID</a>
 
     <nav class="main-nav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="information.html" class="active" aria-current="page">Journeys</a>
-      <a href="registration.html">Book Now</a>
+      <a href="registration.html">Plan Your Escape</a>
     </nav>
   </header>
 
@@ -793,14 +801,19 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <p class="footer-brand">OFFGRID</p>
-    <p>Find Your Somewhere.</p>
-    <p>
-      <a href="mailto:hello@offgrid.example">Contact us</a>
-    </p>
-    <p>© 2026 OFFGRID. Student website project.</p>
-  </footer>
+  
+<footer style="padding:28px 7%;background:#040c11;border-top:1px solid #34434a;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;">
+
+  <a href="index.html" style="font-family:Georgia,serif;letter-spacing:3px;color:#f7f1e6;text-decoration:none;">
+    △ OFFGRID
+  </a>
+
+  <a href="mailto:hello@offgrid.example" style="color:#e6c58b;font-size:13px;text-decoration:none;">
+    Contact us ↗
+  </a>
+
+</footer>
+
 
 </body>
 </html>
