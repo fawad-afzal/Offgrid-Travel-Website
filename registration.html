@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan your next extraordinary journey with OFFGRID.">
+  <title>Plan Your Escape | OFFGRID</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">△ OFFGRID</a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="information.html">Journeys</a>
+      <a href="registration.html" class="active">Plan Your Escape</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="booking-hero">
+      <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+      <h1>Let's plan your <span>somewhere.</span></h1>
+      <p>
+        Tell us what inspires you. We'll use your preferences
+        to help shape a journey worth remembering.
+      </p>
+    </section>
+
+    <section class="booking-layout">
+      <aside class="booking-sidebar">
+        <p class="eyebrow">THE OFFGRID EXPERIENCE</p>
+        <h2>Travel differently.</h2>
+        <p>
+          Every great journey begins with an idea. Share yours
+          with us and start exploring the possibilities.
+        </p>
+
+        <div class="sidebar-feature">
+          <span class="feature-number">01</span>
+          <div>
+            <h3>Made for you</h3>
+            <p>Trips shaped around your interests and travel style.</p>
+          </div>
+        </div>
+
+        <div class="sidebar-feature">
+          <span class="feature-number">02</span>
+          <div>
+            <h3>Beyond ordinary</h3>
+            <p>Discover memorable places and meaningful experiences.</p>
+          </div>
+        </div>
+
+        <div class="sidebar-feature">
+          <span class="feature-number">03</span>
+          <div>
+            <h3>Your pace, your way</h3>
+            <p>Tell us what works for you and your travel companions.</p>
+          </div>
+        </div>
+
+        <div class="sidebar-note">
+          <span>✦</span>
+          <p>A little curiosity can take you a long way.</p>
+        </div>
+      </aside>
+
+      <div class="form-card">
+        <div class="form-heading">
+          <p class="eyebrow">BOOKING ENQUIRY</p>
+          <h2>Plan your journey</h2>
+          <p>Complete the details below to create your sample booking request.</p>
+          <p class="required-note"><span>*</span> Required fields</p>
+        </div>
+
+        <form id="registration-form" action="#" method="post">
+          <fieldset>
+            <legend><span>01</span> Personal details</legend>
+
+            <div class="form-grid">
+              <div class="form-group full-width">
+                <label for="full-name">Full name <span>*</span></label>
+                <input
+                  type="text"
+                  id="full-name"
+                  name="full_name"
+                  placeholder="e.g. Muhammad Fawad"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+
+              <div class="form-group full-width">
+                <label for="email">Email address <span>*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="password">Create password <span>*</span></label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="At least 8 characters"
+                  minlength="8"
+                  autocomplete="new-password"
+                  required
+                >
+                <small>Use at least 8 characters.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="age">Your age <span>*</span></label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  placeholder="18"
+                  min="18"
+                  max="100"
+                  required
+                >
+              </div>
+
+              <div class="form-group full-width">
+                <label for="preferred-date">Preferred departure date</label>
+                <input
+                  type="date"
+                  id="preferred-date"
+                  name="preferred_date"
+                >
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>02</span> Your travel style</legend>
+
+            <div class="form-group">
+              <label for="package">Choose your destination <span>*</span></label>
+             <select id="package" name="package" required>
+            <option value="" selected disabled>Select a destination</option>
+            <option value="santorini">Santorini, Greece</option>
+            <option value="kyoto">Kyoto, Japan</option>
+            <option value="banff">Banff, Canada</option>
+            <option value="patagonia">Patagonia Expedition</option>
+            <option value="custom">Help me choose</option>
+              </select>
+            </div>
+
+           
+
+            <div class="form-group">
+              <p class="field-label">What would you love to experience?</p>
+              <div class="interest-grid">
+                <label class="check-option">
+                  <input type="checkbox" name="interests" value="sightseeing">
+                  <span>Sightseeing</span>
+                </label>
+                <label class="check-option">
+                  <input type="checkbox" name="interests" value="photography">
+                  <span>Photography</span>
+                </label>
+                <label class="check-option">
+                  <input type="checkbox" name="interests" value="local-food">
+                  <span>Local cuisine</span>
+                </label>
+                <label class="check-option">
+                  <input type="checkbox" name="interests" value="hiking">
+                  <span>Hiking and nature</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="comments">Anything else we should know?</label>
+              <textarea
+                id="comments"
+                name="comments"
+                rows="4"
+                maxlength="500"
+                placeholder="Group size, special interests or any other requests..."
+              ></textarea>
+              <small>Maximum 500 characters.</small>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-button">
+              Send booking enquiry <span>↗</span>
+            </button>
+            <button type="reset" class="reset-button">Clear form</button>
+          </div>
+
+          <p class="form-disclaimer">
+            Student project demonstration. This form does not send
+            your information to a booking service.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html" class="footer-brand">△ OFFGRID</a>
+    <p>Extraordinary destinations. Thoughtful journeys.</p>
+    <span>© 2026 OFFGRID · Student project</span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore OFFGRID travel itineraries, destination guides, sample prices, and travel inspiration.">
+  <title>OFFGRID | Curated Journeys</title>
+
+  <style>
+    /* ===== GENERAL STYLES ===== */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #07131a;
+      color: #f7f1e6;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: #f4c978;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    audio:focus-visible,
+    video:focus-visible {
+      outline: 2px solid #f4c978;
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1100px, 84%);
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      color: #f4c978;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .muted {
+      color: #bdc9ce;
+    }
+
+    .section {
+      padding: 75px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      margin: 8px 0 12px;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+    }
+
+    /* ===== HEADER AND NAVIGATION ===== */
+    .site-header {
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 23px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      color: #f4c978;
+      text-decoration: none;
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      white-space: nowrap;
+    }
+
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .main-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: #f4c978;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 570px;
+      min-height: 75svh;
+      padding: 140px 8% 75px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(4, 15, 21, 0.92), rgba(4, 15, 21, 0.35)),
+        url("media/hero.jpg") center / cover no-repeat;
+    }
+
+    .hero-content {
+      width: min(720px, 100%);
+    }
+
+    .hero h1 {
+      max-width: 700px;
+      margin: 12px 0 20px;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.06;
+      letter-spacing: -1.5px;
+    }
+
+    .hero-description {
+      max-width: 580px;
+      color: #d0d9dc;
+      font-size: 17px;
+    }
+
+    .button-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 13px 22px;
+      background: #f4c978;
+      color: #07131a;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .button-link:hover {
+      background: #ffdc9b;
+    }
+
+    /* ===== INTRODUCTION ===== */
+    .intro {
+      text-align: center;
+    }
+
+    .intro h2 {
+      max-width: 780px;
+      margin: 12px auto;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.25;
+    }
+
+    .intro p:last-child {
+      max-width: 760px;
+      margin: 18px auto 0;
+    }
+
+    /* ===== FEATURED JOURNEY ===== */
+    .feature-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(240px, 1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .feature-card,
+    .travel-notes {
+      min-width: 0;
+      padding: 28px;
+      background: #10232c;
+      border: 1px solid #263b43;
+    }
+
+    .feature-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .feature-card h3,
+    .travel-notes h3 {
+      font-size: 25px;
+      line-height: 1.3;
+    }
+
+    .feature-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      padding-top: 12px;
+      border-top: 1px solid #31464e;
+      color: #d0d9dc;
+    }
+
+    .travel-notes ul {
+      padding-left: 20px;
+    }
+
+    .travel-notes li {
+      margin-bottom: 10px;
+      color: #bdc9ce;
+    }
+
+    /* ===== ITINERARY TABLE ===== */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid #31464e;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .itinerary-table {
+      min-width: 580px;
+    }
+
+    th,
+    td {
+      padding: 16px 18px;
+      border-bottom: 1px solid #31464e;
+    }
+
+    th {
+      background: #10232c;
+      color: #f4c978;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: #10232c;
+    }
+
+    /* ===== TRAVEL TIPS ===== */
+    .tips-section {
+      background: #0b1b23;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .tip-card {
+      padding: 25px;
+      background: #10232c;
+      border: 1px solid #263b43;
+    }
+
+    .tip-number {
+      color: #f4c978;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .tip-card h3 {
+      margin: 8px 0;
+    }
+
+    .tip-card p {
+      margin-bottom: 0;
+      color: #bdc9ce;
+    }
+
+    /* ===== SAMPLE PACKAGE PRICES ===== */
+    .price-table {
+      min-width: 540px;
+    }
+
+    .price {
+      color: #f4c978;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .price-note {
+      color: #aab9be;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    /* ===== MULTIMEDIA ===== */
+    .media-section {
+      background: #0b1b23;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .media-card {
+      min-width: 0;
+      padding: 26px;
+      background: #10232c;
+      border: 1px solid #263b43;
+    }
+
+    .media-card h3 {
+      margin-top: 0;
+      font-size: 23px;
+    }
+
+    .media-card p {
+      color: #bdc9ce;
+    }
+
+    audio,
+    video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin-top: 18px;
+    }
+
+    video {
+      aspect-ratio: 16 / 9;
+      background: #000000;
+      object-fit: contain;
+    }
+
+    /* ===== FINAL CALL TO ACTION ===== */
+    .booking-banner {
+      padding: 70px 8%;
+      text-align: center;
+      background:
+        linear-gradient(rgba(7, 19, 26, 0.82), rgba(7, 19, 26, 0.92)),
+        url("media/hero.jpg") center / cover no-repeat;
+    }
+
+    .booking-banner h2 {
+      margin: 12px 0;
+      font-size: clamp(30px, 4vw, 43px);
+    }
+
+    .booking-banner p:not(.eyebrow) {
+      color: #bdc9ce;
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      padding: 30px 8%;
+      text-align: center;
+      border-top: 1px solid #263b43;
+      color: #aab9be;
+    }
+
+    .footer-brand {
+      color: #f4c978;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 4px;
+    }
+
+    .site-footer p {
+      margin: 6px 0;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 800px) {
+      .container {
+        width: 88%;
+      }
+
+      .feature-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .tips-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .site-header {
+        padding-inline: 6%;
+      }
+
+      .main-nav {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .main-nav {
+        gap: 16px;
+      }
+
+      .hero {
+        min-height: 620px;
+        padding: 155px 6% 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: -0.5px;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      .tips-grid,
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card,
+      .travel-notes,
+      .media-card {
+        padding: 20px;
+      }
+
+      .feature-card img {
+        height: 230px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+      }
+
+      .booking-banner {
+        padding: 50px 6%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="index.html" class="brand">OFFGRID</a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="information.html" class="active" aria-current="page">Journeys</a>
+      <a href="registration.html">Book Now</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Curated journeys · Meaningful experiences</p>
+        <h1>Beyond the ordinary.</h1>
+        <p class="hero-description">
+          Discover inspiring places, explore thoughtfully planned itineraries,
+          and find a journey that matches your sense of adventure.
+        </p>
+        <a href="#journeys" class="button-link">Explore the journeys ↓</a>
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="section intro">
+      <div class="container">
+        <p class="eyebrow">A different perspective</p>
+        <h2>Travel is not just about where you go. It is about what you discover.</h2>
+        <p class="muted">
+          OFFGRID is built around the idea that meaningful travel brings people
+          closer to nature, culture, and new perspectives. Explore our sample
+          travel plans, learn practical travel tips, and begin planning your
+          next adventure.
+        </p>
+      </div>
+    </section>
+
+    <!-- FEATURED JOURNEY AND TRAVEL ADVICE -->
+    <section class="section" id="journeys">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Featured inspiration</p>
+          <h2>A journey worth remembering</h2>
+          <p class="muted">
+            Every destination has a story. Start with an idea and shape a
+            journey around the experiences that matter to you.
+          </p>
+        </div>
+
+        <div class="feature-layout">
+          <article class="feature-card">
+            <img
+              src="media/banff.jpg"
+              alt="Mountain peaks and a beautiful alpine lake"
+              loading="lazy"
+            >
+
+            <p class="eyebrow">Nature and adventure</p>
+            <h3>Into the Wild: A Mountain Escape</h3>
+
+            <p class="muted">
+              Imagine peaceful lakes, mountain trails, fresh air, and wide-open
+              landscapes. A nature-focused escape offers time to slow down,
+              explore the outdoors, and appreciate the world beyond the city.
+            </p>
+
+            <div class="feature-details">
+              <span><strong>Duration:</strong> 7–12 days</span>
+              <span><strong>Ideal for:</strong> Nature lovers</span>
+            </div>
+          </article>
+
+          <aside class="travel-notes">
+            <p class="eyebrow">Before you travel</p>
+            <h3>Travel smarter</h3>
+
+            <p class="muted">
+              A little preparation can make your journey more comfortable
+              and enjoyable.
+            </p>
+
+            <ul>
+              <li>Check passport and visa requirements.</li>
+              <li>Review weather and seasonal conditions.</li>
+              <li>Choose suitable clothing and footwear.</li>
+              <li>Keep important documents secure.</li>
+              <li>Respect local traditions and the environment.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITINERARY -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Plan your experience</p>
+          <h2>A sample 7-day itinerary</h2>
+          <p class="muted">
+            Here is an example of how a week-long adventure could be organised.
+            Activities depend on the destination, weather, and local conditions.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="itinerary-table">
+            <thead>
+              <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Activity</th>
+                <th scope="col">Experience</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Day 1</td>
+                <td>Arrival and check-in</td>
+                <td>Settle in and explore nearby areas.</td>
+              </tr>
+              <tr>
+                <td>Day 2</td>
+                <td>Local discovery</td>
+                <td>Visit landmarks and neighbourhoods.</td>
+              </tr>
+              <tr>
+                <td>Day 3</td>
+                <td>Nature and scenery</td>
+                <td>Enjoy a guided outdoor excursion.</td>
+              </tr>
+              <tr>
+                <td>Day 4</td>
+                <td>Culture and food</td>
+                <td>Discover local traditions and cuisine.</td>
+              </tr>
+              <tr>
+                <td>Day 5</td>
+                <td>Adventure day</td>
+                <td>Choose an activity suited to your interests.</td>
+              </tr>
+              <tr>
+                <td>Day 6</td>
+                <td>Free exploration</td>
+                <td>Shop, take photographs, or relax.</td>
+              </tr>
+              <tr>
+                <td>Day 7</td>
+                <td>Departure</td>
+                <td>Prepare for the journey home.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAVEL TIPS -->
+    <section class="section tips-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">A little preparation goes a long way</p>
+          <h2>Three ways to travel better</h2>
+        </div>
+
+        <div class="tips-grid">
+          <article class="tip-card">
+            <span class="tip-number">01</span>
+            <h3>Pack with purpose</h3>
+            <p>
+              Carry what you need, check the weather, and leave room for
+              souvenirs and unexpected discoveries.
+            </p>
+          </article>
+
+          <article class="tip-card">
+            <span class="tip-number">02</span>
+            <h3>Connect with culture</h3>
+            <p>
+              Learn a few local phrases, respect customs, and support local
+              businesses wherever possible.
+            </p>
+          </article>
+
+          <article class="tip-card">
+            <span class="tip-number">03</span>
+            <h3>Leave time to explore</h3>
+            <p>
+              Do not overfill your schedule. Some of the best travel moments
+              happen when you slow down.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAMPLE PRICING TABLE -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Explore your options</p>
+          <h2>Sample journey packages</h2>
+          <p class="muted">
+            Compare example destinations and durations before choosing the
+            kind of experience you would like.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th scope="col">Package</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Example price</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>European Discovery</td>
+                <td>8 days</td>
+                <td class="price">$2,499</td>
+              </tr>
+              <tr>
+                <td>Bali Escape</td>
+                <td>6 days</td>
+                <td class="price">$1,299</td>
+              </tr>
+              <tr>
+                <td>Patagonia Expedition</td>
+                <td>12 days</td>
+                <td class="price">$3,299</td>
+              </tr>
+              <tr>
+                <td>Japan in Detail</td>
+                <td>9 days</td>
+                <td class="price">$2,899</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="price-note">
+          Note: These prices are illustrative examples for a student project.
+          They are not live offers, confirmed package prices, or booking quotes.
+        </p>
+      </div>
+    </section>
+
+    <!-- AUDIO AND VIDEO -->
+    <section class="section media-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Experience the atmosphere</p>
+          <h2>Listen, watch, and imagine</h2>
+          <p class="muted">
+            Use the audio and video players below to explore the multimedia
+            features of this travel website.
+          </p>
+        </div>
+
+        <div class="media-grid">
+          <article class="media-card">
+            <h3>Travel soundtrack</h3>
+            <p>
+              Play the audio sample and imagine the atmosphere of your next
+              adventure.
+            </p>
+
+            <audio controls preload="metadata">
+              <source src="media/travel-audio.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+
+            <p class="price-note">
+              Audio file: media/travel-audio.mp3
+            </p>
+          </article>
+
+          <article class="media-card">
+            <h3>Journey preview</h3>
+            <p>
+              Watch a short video to get a feel for the places and landscapes
+              that make travel memorable.
+            </p>
+
+            <video controls preload="metadata" poster="media/hero.jpg">
+              <source src="media/journey-preview.mp4" type="video/mp4">
+              Your browser does not support the video element.
+            </video>
+
+            <p class="price-note">
+              Video file: media/journey-preview.mp4
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING CALL TO ACTION -->
+    <section class="booking-banner">
+      <p class="eyebrow">Your next chapter awaits</p>
+      <h2>Let's plan your somewhere.</h2>
+      <p>Tell us what kind of journey you have in mind.</p>
+      <a href="registration.html" class="button-link">
+        Make a Booking Enquiry ↗
+      </a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p class="footer-brand">OFFGRID</p>
+    <p>Find Your Somewhere.</p>
+    <p>
+      <a href="mailto:hello@offgrid.example">Contact us</a>
+    </p>
+    <p>© 2026 OFFGRID. Student website project.</p>
+  </footer>
+
+</body>
+</html>
